@@ -1,0 +1,31 @@
+name: Main branch worflow
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branchs: [main]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install Node Modules
+        run: yarn install
+      - name: Run Jest Tests
+        run: yarn test
+
+      - name: Lint Code Base
+        uses: github/super-linter@v3
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+      - name: Echo done message
+        run: echo "Done!"
