@@ -21,7 +21,8 @@ const Navigation = () => {
 				
 				<ul className="navbar-nav mr-auto">
 					<li className="nav-item">
-						<NavLink 
+						<NavLink
+							exact
 							to="/" 
 							activeClassName="active" 
 							className="nav-link">
@@ -29,7 +30,8 @@ const Navigation = () => {
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink 
+						<NavLink
+							exact 
 							to="/populare-movies" 
 							activeClassName="active" 
 							className="nav-link">
@@ -38,6 +40,7 @@ const Navigation = () => {
 					</li>
 					<li className="nav-item">
 						<NavLink 
+							exact
 							to="/populare-tvs" 
 							activeClassName="active" 
 							className="nav-link">
@@ -45,7 +48,8 @@ const Navigation = () => {
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink 
+						<NavLink
+							exact
 							to="/about" 
 							activeClassName="active" 
 							className="nav-link">
