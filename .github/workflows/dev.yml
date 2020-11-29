@@ -17,5 +17,6 @@ jobs:
         run: |
           yarn install
           yarn test
-          yarn prettier -w .
+          yarn lint
+          yarn pretty
           echo "Done!"
