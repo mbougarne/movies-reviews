@@ -2,7 +2,7 @@ name: Main branch worflow
 
 on:
   push:
-    branches: [dev]
+    branches: [main]
   pull_request:
     branchs: [main]
 
