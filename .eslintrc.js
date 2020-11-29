@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 module.exports = {
     parser: "@typescript-eslint/parser", // Specifies the ESLint parser
     parserOptions: {
@@ -15,9 +14,7 @@ module.exports = {
     },
     extends: [
         "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended",
-        "prettier/@typescript-eslint",
-        "plugin:prettier/recommended"
+        "plugin:react/recommended"
     ],
     rules: {
         "@typescript-eslint/explicit-function-return-type": "off",
