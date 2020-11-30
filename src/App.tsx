@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import './styles/App.css';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Switch>
             <Route exact path="/" > <Home /> </Route>
             <Route exact path="/about" > <About /> </Route>
+            <Route component={NotFound} />
           </Switch>
         </main>
         <Footer />  

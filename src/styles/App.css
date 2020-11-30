@@ -1,5 +1,6 @@
 @import './LightScheme.css';
 @import './Home.css';
+@import './NoutFound.css';
 
 .MainContent {
   min-height: 70vh;
