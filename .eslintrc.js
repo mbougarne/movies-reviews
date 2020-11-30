@@ -21,7 +21,9 @@ module.exports = {
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
         "react/prop-types": "off",
         "react/no-unescaped-entities": "warn",
+        "prefer-const": "warn",
     }
 };
