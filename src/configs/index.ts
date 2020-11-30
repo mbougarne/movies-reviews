@@ -1,6 +1,6 @@
 type StringFunction = () => string;
 
-const MVDB = {
+export const MVDB = {
 	API_KEY: 'af7c3821eec1b93f1fb273661064fb55',
 	BASE_URL: 'https://api.themoviedb.org/3/',
 	YOUTUBE_WATCH: 'https://www.youtube.com/watch?v=',

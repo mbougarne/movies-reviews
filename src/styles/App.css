@@ -1,3 +1,28 @@
-.Header{
-  padding-bottom: 85px;
+@import './LightScheme.css';
+@import './Home.css';
+
+.Header {
+  padding-bottom: 100px;
+}
+
+.btn-poster {
+  font-size: .9rem; 
+  border-radius: 0;
+  background-color: #9C27B0;
+  border-color: #9C27B0;
+  color: #fff;
+}
+
+.btn-poster:hover,
+.btn-poster:focus,
+.btn-poster:active {
+  color: #fff;
+}
+
+.text-date {
+  color: #FFC107;
+}
+
+.bg-black {
+  background-color: #000;
 }

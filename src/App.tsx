@@ -8,7 +8,7 @@ import './styles/App.css';
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="App LightScheme">
       <Router>
         <Switch>
           <Route exact path="/" > <Home /> </Route>

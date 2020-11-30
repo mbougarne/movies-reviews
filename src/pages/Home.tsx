@@ -1,7 +1,9 @@
 import React, { Component, ReactNode } from 'react';
 import Header from '../components/Header';
+import Movie from '../components/Movie';
 
-import configs from '../configs'
+import configs from '../configs';
+import MovieSchema from '../types/Movie';
 
 export default class Home extends Component<any, any>
 {
@@ -33,7 +35,7 @@ export default class Home extends Component<any, any>
 		const data = await res.json();
 
 		this.setState((state: any) => ({
-			movies: [...state.movies, data.results]
+			movies: [...state.movies, data.results.slice(0, 12)]
 		}));
 	}
 
@@ -43,7 +45,7 @@ export default class Home extends Component<any, any>
 		const data = await res.json();
 
 		this.setState((state: any) => ({
-			tvs: [...state.tvs, data.results]
+			tvs: [...state.tvs, data.results.slice(0, 12)]
 		}))
 	}
 
@@ -56,9 +58,21 @@ export default class Home extends Component<any, any>
 
 	render(): ReactNode
 	{
+		const { movies } = this.state;
+		const Movies = (movies.length > 0) ? movies[0].map((item: MovieSchema) => <Movie movie={item} key={item.id} />) : '';
+
 		return (
-			<div className="HomePage">
+			<div className="HomePage container">
 				<Header />
+				{/* Top Rated Movies */}
+				<section className="TopRatedSection">
+					<h2 className="mb-4 text-uppercase font-weight-bold">Top Rated Movies</h2>
+					<div className="my-3 py-2">
+						<div className="row">
+							{Movies}
+						</div>
+					</div>
+				</section>
 			</div>
 		)
 	}

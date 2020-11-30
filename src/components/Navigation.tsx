@@ -3,9 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
 	return (
-		<nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<nav className="navbar navbar-expand-md navbar-dark fixed-top bg-black">
 			
-			<a className="navbar-brand" href="/">Movies Reviews</a>
+			<NavLink
+				exact 
+				to="/"
+				className="navbar-brand font-weight-bold">
+				MR
+			</NavLink>
 			<button 
 				className="navbar-toggler" 
 				type="button" 
@@ -44,7 +49,7 @@ const Navigation = () => {
 							to="/populare-tvs" 
 							activeClassName="active" 
 							className="nav-link">
-							Populare TV Shows
+							Populare Shows
 						</NavLink>
 					</li>
 					<li className="nav-item">
