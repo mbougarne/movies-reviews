@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 
 import Movie from '../components/Movie';
 
@@ -27,7 +26,7 @@ export default class PopularMovies extends Component<any, any>
 
       const res = await fetch(this.moviesLink());
       const data = await res.json()
-      console.log(data)
+      
       this.setState((state: any) => ({
         movies: [...state.movies, data.results]
       }))
