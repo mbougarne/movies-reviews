@@ -1,9 +1,11 @@
 import React, { Component, ReactNode } from 'react';
 import Header from '../components/Header';
 import Movie from '../components/Movie';
+import Show from '../components/Show';
 
 import configs from '../configs';
 import MovieSchema from '../types/Movie';
+import ShowSchema from '../types/Show';
 
 export default class Home extends Component<any, any>
 {
@@ -41,7 +43,7 @@ export default class Home extends Component<any, any>
 
 	async fetchShows()
 	{
-		const res = await fetch(this.moviesLink());
+		const res = await fetch(this.tvsLink());
 		const data = await res.json();
 
 		this.setState((state: any) => ({
@@ -58,8 +60,9 @@ export default class Home extends Component<any, any>
 
 	render(): ReactNode
 	{
-		const { movies } = this.state;
+		const { movies, tvs } = this.state;
 		const Movies = (movies.length > 0) ? movies[0].map((item: MovieSchema) => <Movie movie={item} key={item.id} />) : '';
+		const Shows = (tvs.length > 0) ? tvs[0].map((item: ShowSchema) => <Show show={item} key={item.id} />) : '';
 
 		return (
 			<div className="HomePage container">
@@ -70,6 +73,15 @@ export default class Home extends Component<any, any>
 					<div className="my-3 py-2">
 						<div className="row">
 							{Movies}
+						</div>
+					</div>
+				</section>
+				{/* Top Rated Shows */}
+				<section className="TopRatedSection mt-5">
+					<h2 className="mb-4 text-uppercase font-weight-bold">Top Rated Shows</h2>
+					<div className="my-3 py-2">
+						<div className="row">
+							{Shows}
 						</div>
 					</div>
 				</section>
