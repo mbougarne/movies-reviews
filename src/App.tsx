@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Home from './pages/Home';
 import About from './pages/About';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 import './styles/App.css';
 
@@ -10,11 +12,15 @@ export default function App() {
   return (
     <div className="App LightScheme">
       <Router>
-        <Switch>
-          <Route exact path="/" > <Home /> </Route>
-          <Route exact path="/about" > <About /> </Route>
-        </Switch>
-      </Router>      
+        <Header />
+        <main className="MainContent">
+          <Switch>
+            <Route exact path="/" > <Home /> </Route>
+            <Route exact path="/about" > <About /> </Route>
+          </Switch>
+        </main>
+        <Footer />  
+      </Router> 
     </div>
   );
 }

@@ -22,5 +22,6 @@ module.exports = {
         "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "react/prop-types": "off",
+        "react/no-unescaped-entities": "warn",
     }
 };

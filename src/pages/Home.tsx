@@ -1,5 +1,4 @@
 import React, { Component, ReactNode } from 'react';
-import Header from '../components/Header';
 import Movie from '../components/Movie';
 import Show from '../components/Show';
 
@@ -66,7 +65,6 @@ export default class Home extends Component<any, any>
 
 		return (
 			<div className="HomePage container">
-				<Header />
 				{/* Top Rated Movies */}
 				<section className="TopRatedSection">
 					<h2 className="mb-4 text-uppercase font-weight-bold">Top Rated Movies</h2>

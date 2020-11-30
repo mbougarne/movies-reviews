@@ -1,6 +1,10 @@
 @import './LightScheme.css';
 @import './Home.css';
 
+.MainContent {
+  min-height: 70vh;
+}
+
 .Header {
   padding-bottom: 100px;
 }
