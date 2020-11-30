@@ -9,16 +9,11 @@ export const MVDB = {
 	POSTER_SIZE: 'w500'
 }
 
-const popularTvs: StringFunction = () : string => (
-	MVDB.BASE_URL + 'tv/popular?api_key=' + MVDB.API_KEY + '&language=en-US&page=1'
-)
-
 const searchMovie: StringFunction = () : string => (
 	MVDB.BASE_URL + 'search/movie?api_key=' + MVDB.API_KEY + '&query='
 )
 
 export default {
 	...MVDB,
-	popularTvs,
 	searchMovie
 }

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import PopularMovies from './pages/PopularMovies';
+import PopularShows from './pages/PopularShows';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -19,6 +20,7 @@ export default function App() {
           <Switch>
             <Route exact path="/" > <Home /> </Route>
             <Route exact path="/populare-movies" > <PopularMovies /> </Route>
+            <Route exact path="/populare-tvs" > <PopularShows /> </Route>
             <Route exact path="/about" > <About /> </Route>
             <Route component={NotFound} />
           </Switch>
