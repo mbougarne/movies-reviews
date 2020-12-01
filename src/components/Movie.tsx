@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import MovieSchema from '../types/Movie';
-import { MVDB } from '../configs'
+import MVDB from '../configs'
 
 const Movie = ({ movie }: MovieSchema) => {
   return (

@@ -10,18 +10,18 @@ export default function Footer()
           <div className="col">
             <p className="copyrights">
               &copy; All Rights Reserved ~ MR 2020 <br/>
-              <ul className="list-unstyled">
-                <li className="list-unstyled-item">
-                  <NavLink 
-                    exact
-                    to="/about"
-                    style={{color: '#9C27B0'}}
-                  >
-                    About
-                  </NavLink>
-                </li>
-              </ul>
             </p>
+            <ul className="list-unstyled">
+              <li className="list-unstyled-item">
+                <NavLink 
+                  exact
+                  to="/about"
+                  style={{color: '#9C27B0'}}
+                >
+                  About
+                </NavLink>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

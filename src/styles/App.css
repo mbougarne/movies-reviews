@@ -1,6 +1,7 @@
 @import './LightScheme.css';
 @import './Home.css';
 @import './NoutFound.css';
+@import './SinglePage.css';
 
 .MainContent {
   min-height: 70vh;
@@ -8,6 +9,10 @@
 
 .Header {
   padding-bottom: 100px;
+}
+
+.Footer{
+  padding: 15px 0;
 }
 
 .btn-poster {
@@ -30,4 +35,18 @@
 
 .bg-black {
   background-color: #000;
+}
+
+.btn-play {
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #e6c92a;
+  text-align: center;
+  line-height: 5px;
+}
+
+.btn-play i {
+  font-size: 12px;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import ShowSchema from '../types/Show';
-import { MVDB } from '../configs'
+import MVDB from '../configs'
 
 const Show = ({ show }: ShowSchema) => {
   return (

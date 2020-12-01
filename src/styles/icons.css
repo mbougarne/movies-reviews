@@ -6,3 +6,7 @@ i:focus,
 i:active{
     color: #e6c92a;
 }
+
+.fa-circle{
+    font-size: 8px;
+}

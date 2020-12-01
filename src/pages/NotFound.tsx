@@ -14,7 +14,7 @@ export default class NotFound extends Component<any, any>
               404
             </span>
         </h1>
-        <p className="lead mt-3">
+        <div className="lead mt-3">
           <NavLink
             exact 
             to="/"
@@ -22,7 +22,7 @@ export default class NotFound extends Component<any, any>
           > 
             Back to home   
           </NavLink>
-        </p>
+        </div>
       </div>
     )
   }
