@@ -35,19 +35,19 @@ const Navigation = () => {
 					<li className="nav-item">
 						<NavLink
 							exact 
-							to="/populare-movies" 
+							to="/popular-movies" 
 							activeClassName="active" 
 							className="nav-link">
-							Populare Movies
+							Popular Movies
 						</NavLink>
 					</li>
 					<li className="nav-item">
 						<NavLink 
 							exact
-							to="/populare-tvs" 
+							to="/popular-tvs" 
 							activeClassName="active" 
 							className="nav-link">
-							Populare Shows
+							Popular Shows
 						</NavLink>
 					</li>
 					<li className="nav-item">

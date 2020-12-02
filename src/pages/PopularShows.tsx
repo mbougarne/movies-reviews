@@ -36,7 +36,7 @@ class PopularShows extends Component<any, any>
       return (
         <>
           <div className="my-3 py-2">
-            <h1 className="mb-4 text-uppercase font-weight-bold">Top Rated TV Shows</h1>
+            <h1 className="mb-4 text-uppercase font-weight-bold">Popular TV Shows</h1>
             <div className="row">
               {Shows}
             </div>

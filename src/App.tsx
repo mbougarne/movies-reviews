@@ -20,8 +20,8 @@ export default function App() {
         <div className="MainContent">
           <Switch>
             <Route exact path="/" > <Home /> </Route>
-            <Route exact path="/populare-movies" > <PopularMovies /> </Route>
-            <Route exact path="/populare-tvs" > <PopularShows /> </Route>
+            <Route exact path="/popular-movies" > <PopularMovies /> </Route>
+            <Route exact path="/popular-tvs" > <PopularShows /> </Route>
             <Route exact path="/about" > <About /> </Route>
             <Route exact path="/movies/:id" > <SingleItem type="movie" /> </Route>
             <Route exact path="/shows/:id" > <SingleItem type="show" /> </Route>
