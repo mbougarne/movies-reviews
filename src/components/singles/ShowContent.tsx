@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Icon from '../Icon';
+import Trailer from '../Trailer';
 
 import MVDB from '../../configs';
 import ShowSchema from '../../types/Show';
@@ -7,10 +8,21 @@ import { getYearOfDate, timeConverter } from '../../helpers';
 
 const ShowContent = ({ show }: ShowSchema) => 
 {
+  const [showTrailer, setShowTrailer] = useState(false);
   const netLogo = MVDB.IMAGE_BASE_URL + 'w45/';
   const genres = show.genres.map((g: any) =>  <span key={g.id}>{g.name} <Icon name="circle mr-1" /></span>);
   const languages = show.spoken_languages.map((l: any, i: number) =>  <li key={i}>{l.english_name}</li>);
   const networks = show.networks.map((n: any) => <img key={n.id} src={netLogo + n.logo_path} alt={n.name} />);
+
+  const getTrailerLink = () : string | void => {
+    if(show.videos.results.length > 0)
+    {
+      return MVDB.YOUTUBE_WATCH + show.videos.results[0].key
+    }
+  }
+
+  const watchTrailer = () : void => setShowTrailer(true)
+  const hideTrailer = () : void => setShowTrailer(false);
 
   return (
     <div className="ItemContent">
@@ -61,7 +73,7 @@ const ShowContent = ({ show }: ShowSchema) =>
                   </span>
 
                   {(show.videos.results.length > 0) && <span className="trailer-ico">
-                    <button className="btn btn-play">
+                    <button className="btn btn-play" onClick={watchTrailer}>
                       <Icon name="play text-star" />
                     </button>
                   </span>}
@@ -134,6 +146,8 @@ const ShowContent = ({ show }: ShowSchema) =>
           </div>
         </div>
       </section>
+      {/* Trailer */}
+      {showTrailer && <Trailer media={getTrailerLink()} hide={hideTrailer} />}
     </div>
   )
 }
