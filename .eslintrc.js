@@ -24,6 +24,6 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": "warn",
         "react/prop-types": "off",
         "react/no-unescaped-entities": "warn",
-        "prefer-const": "warn",
+        "prefer-const": "off",
     }
 };
