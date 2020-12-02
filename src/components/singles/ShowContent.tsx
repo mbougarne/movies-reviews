@@ -17,11 +17,11 @@ const ShowContent = ({ show }: ShowSchema) =>
   const getTrailerLink = () : string | void => {
     if(show.videos.results.length > 0)
     {
-      return MVDB.YOUTUBE_WATCH + show.videos.results[0].key
+      return MVDB.YOUTUBE_WATCH + show.videos.results[0].key;
     }
   }
 
-  const watchTrailer = () : void => setShowTrailer(true)
+  const watchTrailer = () : void => setShowTrailer(true);
   const hideTrailer = () : void => setShowTrailer(false);
 
   return (

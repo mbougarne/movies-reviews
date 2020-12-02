@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Icon from '../Icon';
+import Trailer from '../Trailer';
 
 import MVDB from '../../configs';
 import MovieSchema from '../../types/Movie';
@@ -7,8 +8,19 @@ import { getYearOfDate, timeConverter, budgetRevenueConverter } from '../../help
 
 const MovieContent = ({ movie }: MovieSchema) => 
 {
+  const [showTrailer, setShowTrailer] = useState(false);
   const genres = movie.genres.map((g: any) =>  <span key={g.id}>{g.name} <Icon name="circle mr-1" /></span>);
   const languages = movie.spoken_languages.map((l: any, i: number) =>  <li key={i}>{l.english_name}</li>);
+
+  const getTrailerLink = () : string | void => {
+    if(movie.videos.results.length > 0)
+    {
+      return MVDB.YOUTUBE_WATCH + movie.videos.results[0].key;
+    }
+  }
+
+  const watchTrailer = () : void => setShowTrailer(true);
+  const hideTrailer = () : void => setShowTrailer(false);
 
   return (
     <div className="ItemContent">
@@ -68,11 +80,11 @@ const MovieContent = ({ movie }: MovieSchema) =>
                     </a>
                   </span>
 
-                  <span className="trailer-ico">
-                    <button className="btn btn-play">
+                  {(movie.videos.results.length > 0) && <span className="trailer-ico">
+                    <button className="btn btn-play" onClick={watchTrailer}>
                       <Icon name="play text-star" />
                     </button>
-                  </span>
+                  </span>}
                 </h3>
               </div>
               <div className="details-content mt-5">
@@ -140,6 +152,8 @@ const MovieContent = ({ movie }: MovieSchema) =>
             </div>
         </div>
       </section>
+      {/* Trailer */}
+      {showTrailer && <Trailer media={getTrailerLink()} hide={hideTrailer} />}
     </div>
   )
 }
