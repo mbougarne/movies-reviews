@@ -1,9 +1,9 @@
-import topRatedMovies from './topRatedMovies';
-import topRatedShows from './topRatedShows';
-import popularMovies from './popularMovies';
-import popularShows from './popularShows';
+import topRatedMovies from './creators/topRatedMovies';
+import topRatedShows from './creators/topRatedShows';
+import popularMovies from './creators/popularMovies';
+import popularShows from './creators/popularShows';
 
-export default {
+export  {
   topRatedMovies,
   topRatedShows,
   popularMovies,

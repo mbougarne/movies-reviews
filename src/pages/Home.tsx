@@ -1,89 +1,88 @@
 import React, { Component, ReactNode } from 'react';
 import Movie from '../components/Movie';
 import Show from '../components/Show';
+import Error from '../components/Error';
 
-import configs from '../configs';
 import MovieSchema from '../types/Movie';
 import ShowSchema from '../types/Show';
+import StateSchema from '../types/State';
 
-export default class Home extends Component<any, any>
+import { connect } from 'react-redux';
+import { topRatedMovies, topRatedShows } from '../store/actions';
+
+class Home extends Component<any, any>
 {
 
 	constructor(props: {} | Readonly<{}>)
 	{
 		super(props);
-		this.state = {
-			movies: [],
-			tvs: []
-		}
 	}
 
-	// Get API path of top rated movies
-	moviesLink() : string 
-	{
-		return configs.BASE_URL + 'movie/top_rated?api_key=' + configs.API_KEY + '&language=en-US&page=1';
-	}
 
-	// Get API path of top rated TV shows
-	tvsLink() : string
-	{
-		return configs.BASE_URL + 'tv/top_rated?api_key=' + configs.API_KEY + '&language=en-US&page=1';
-	}
-
-	async fetchMovies()
-	{
-		const res = await fetch(this.moviesLink());
-		const data = await res.json();
-
-		this.setState((state: any) => ({
-			movies: [...state.movies, data.results.slice(0, 12)]
-		}));
-	}
-
-	async fetchShows()
-	{
-		const res = await fetch(this.tvsLink());
-		const data = await res.json();
-
-		this.setState((state: any) => ({
-			tvs: [...state.tvs, data.results.slice(0, 12)]
-		}))
-	}
-
-	// Fetch movies and TV show, when component mounted
 	componentDidMount()
 	{
-		this.fetchMovies();
-		this.fetchShows();
+		this.props.topRatedMovies()
+		this.props.topRatedShows()
 	}
 
 	render(): ReactNode
 	{
-		const { movies, tvs } = this.state;
-		const Movies = (movies.length > 0) ? movies[0].map((item: MovieSchema) => <Movie movie={item} key={item.id} />) : '';
-		const Shows = (tvs.length > 0) ? tvs[0].map((item: ShowSchema) => <Show show={item} key={item.id} />) : '';
+		const { movies, shows, error, errorMessage, loaded } = this.props;
+		const Movies = (movies.length > 0) ? movies.map((item: MovieSchema) => <Movie movie={item} key={item.id} />) : '';
+		const Shows = (shows.length > 0) ? shows.map((item: ShowSchema) => <Show show={item} key={item.id} />) : '';
+		
+		const UI = () => {
+			
+			if(error)
+			{
+				return <Error title="404 Not Found" message={errorMessage} />
+			} else if(!loaded) {
+				return <h1>LOADING DATA...</h1>
+			}
+
+			return (
+					<>
+					{/* Top Rated Movies */}
+					<section className="TopRatedSection">
+						<h2 className="mb-4 text-uppercase font-weight-bold">Top Rated Movies</h2>
+						<div className="my-3 py-2">
+							<div className="row">
+								{Movies}
+							</div>
+						</div>
+					</section>
+					{/* Top Rated Shows */}
+					<section className="TopRatedSection mt-5">
+						<h2 className="mb-4 text-uppercase font-weight-bold">Top Rated Shows</h2>
+						<div className="my-3 py-2">
+							<div className="row">
+								{Shows}
+							</div>
+						</div>
+					</section>
+				</>
+			)
+		}
 
 		return (
 			<div className="HomePage container">
-				{/* Top Rated Movies */}
-				<section className="TopRatedSection">
-					<h2 className="mb-4 text-uppercase font-weight-bold">Top Rated Movies</h2>
-					<div className="my-3 py-2">
-						<div className="row">
-							{Movies}
-						</div>
-					</div>
-				</section>
-				{/* Top Rated Shows */}
-				<section className="TopRatedSection mt-5">
-					<h2 className="mb-4 text-uppercase font-weight-bold">Top Rated Shows</h2>
-					<div className="my-3 py-2">
-						<div className="row">
-							{Shows}
-						</div>
-					</div>
-				</section>
+				<UI />
 			</div>
 		)
 	}
 }
+
+const mapStatetoProps = (state: StateSchema) => {
+	return {
+		movies: state.movies,
+		shows: state.shows,
+		error: state.isError,
+		errorMessage: state.message,
+		loaded: state.isLoaded
+	}
+}
+
+export default connect(
+	mapStatetoProps,
+	{ topRatedMovies, topRatedShows }
+)(Home);

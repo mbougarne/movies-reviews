@@ -5,5 +5,5 @@ export default interface State{
   popularShows: Record<string, any>[],
   isError: boolean,
   message: string,
-  isLoading: boolean
+  isLoaded: boolean
 }
