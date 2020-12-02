@@ -1,7 +1,3 @@
-// const searchMovie: StringFunction = () : string => (
-// 	MVDB.BASE_URL + 'search/movie?api_key=' + MVDB.API_KEY + '&query='
-// )
-
 export default {
 	API_KEY: 'af7c3821eec1b93f1fb273661064fb55',
 	BASE_URL: 'https://api.themoviedb.org/3/',
