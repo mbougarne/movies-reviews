@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import SingleMovie from '../components/SingleMovie';
+import SingleShow from '../components/SingleShow';
 
 export default class SingleItem extends Component<any, any>
 {
@@ -12,7 +13,7 @@ export default class SingleItem extends Component<any, any>
 
   render()
   {
-    const Item = (this.props.type === 'movie') ? <SingleMovie /> : 'Show';
+    const Item = (this.props.type === 'movie') ? <SingleMovie /> : <SingleShow />;
 
     return (
       <main className="SingleItem">
