@@ -8,7 +8,8 @@ const initialState: StateScheme = {
   popularShows: [],
   isError: false,
   message: '',
-  isLoaded: false
+  isLoaded: false,
+  isSearch: false,
 } 
 
 const rootReducers = (state: StateScheme = initialState, action: any) => 
@@ -58,6 +59,12 @@ const rootReducers = (state: StateScheme = initialState, action: any) =>
         message: action.payload.message,
         isLoaded: action.payload.loaded
     }
+
+    case types.IS_SEARCHING:
+      return {
+        ...state,
+        isSearch: action.payload.searching
+      }
 
     default:
       return state

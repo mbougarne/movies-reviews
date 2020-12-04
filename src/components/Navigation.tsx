@@ -1,8 +1,25 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Icon from './Icon';
 
+import StateScheme from '../types/State';
+import { IS_SEARCHING } from '../store/actions/types';
+
 const Navigation = () => {
+
+	let isSearching = useSelector((state: StateScheme) => state.isSearch)
+	let dispatch = useDispatch();
+
+	const onSearching = () => {
+		dispatch({
+			type: IS_SEARCHING,
+			payload: {
+				searching: isSearching = !isSearching
+			}
+		})
+	}
+
 	return (
 		<nav className="navbar navbar-expand-md navbar-dark fixed-top bg-black">
 			
@@ -64,6 +81,7 @@ const Navigation = () => {
 			<div className="mt-2 mt-md-0">
 				<button 
 					className="btn btn-search"
+					onClick={onSearching}
 				>
 					<Icon name="search" />
 				</button>
