@@ -4,6 +4,7 @@ export default {
 	IMAGE_BASE_URL: 'https://image.tmdb.org/t/p/',
 	POSTER_SIZE: 'w500',
 	POSTER_SIZE_SM: 'w342',
+	POSTER_SEARCH: 'w92',
 	BACKDROP_SIZE: 'w1280',
 	YOUTUBE_WATCH: 'https://www.youtube.com/embed/'
 }

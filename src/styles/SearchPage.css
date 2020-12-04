@@ -1,0 +1,10 @@
+.SearchPage {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  display: block;
+  z-index: 9999;
+  background-color: #000;
+}

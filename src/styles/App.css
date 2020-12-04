@@ -2,6 +2,7 @@
 @import './Home.css';
 @import './NoutFound.css';
 @import './SinglePage.css';
+@import './SearchPage.css';
 
 .MainContent {
   min-height: 70vh;
