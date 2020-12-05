@@ -7,7 +7,7 @@ import '../styles/Player.css';
 export default function Player() 
 {
 	const [loaded, setLoaded] = useState(false);
-	const sourceLink = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+	const sourceLink = 'http://staging.mbougarne.me/2020-12-05_21-41-58.mp4';
 	const videoElement: any = useRef(null);
 	
 	useEffect(() => {
