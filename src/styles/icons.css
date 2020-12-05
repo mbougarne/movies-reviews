@@ -1,0 +1,12 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+i,
+i:hover,
+i:focus,
+i:active{
+    color: #e6c92a;
+}
+
+.fa-circle{
+    font-size: 8px;
+}
