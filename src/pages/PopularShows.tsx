@@ -8,6 +8,8 @@ import Error from '../components/Error';
 import ShowSchema from '../types/Show';
 import StateSchema from '../types/State';
 
+import ItemsSkeleton from '../skeleton/Items';
+
 class PopularShows extends Component<any, any>
 {
   constructor(props: {} | Readonly<{}>)
@@ -26,11 +28,15 @@ class PopularShows extends Component<any, any>
     let Shows = (shows.length > 0) ? shows.map((item: ShowSchema) => <Show show={item} key={item.id} />) : '';
 
     const UI = () => {
+
       if(error)
       {
         return <Error title="404 Not Found" message={errorMessage} />
+
       } else if (!loaded) {
-        return <h1>LOADING DATA...</h1>
+
+        return <ItemsSkeleton />
+        
       }
 
       return (

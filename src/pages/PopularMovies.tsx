@@ -8,6 +8,8 @@ import Error from '../components/Error';
 import MovieSchema from '../types/Movie';
 import StateScheme from '../types/State';
 
+import ItemsSkeleton from '../skeleton/Items';
+
 class PopularMovies extends Component<any, any>
 {
   constructor(props: {} | Readonly<{}>)
@@ -29,9 +31,13 @@ class PopularMovies extends Component<any, any>
 
       if(error)
 			{
+
 				return <Error title="404 Not Found" message={errorMessage} />
+
 			} else if(!loaded) {
-				return <h1>LOADING DATA...</h1>
+
+				return <ItemsSkeleton />
+        
       }
       
       return (

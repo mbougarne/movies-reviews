@@ -7,6 +7,8 @@ import ShowItem from './search/ShowItem';
 
 import MVDB from '../configs';
 
+import SearchSkeleton from '../skeleton/SearchSkeleton';
+
 export default function Search()
 {
 
@@ -48,7 +50,7 @@ export default function Search()
     if(!loaded)
     {
 
-      return <h1>Searching Data...</h1>
+      return <SearchSkeleton />
 
     } else if(error) {
 
@@ -65,7 +67,9 @@ export default function Search()
   }
 
   return (
-    <div className="SearchPage">
+    <div 
+      className="SearchPage"
+      style={{ position: (loaded) ? 'absolute' : 'fixed' }}>
       <div className="search-wrapper my-3">
         <div className="container">
           {/* FORM */}

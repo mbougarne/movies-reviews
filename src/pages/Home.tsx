@@ -10,6 +10,8 @@ import StateSchema from '../types/State';
 import { connect } from 'react-redux';
 import { topRatedMovies, topRatedShows } from '../store/actions';
 
+import ItemsSkeleton from '../skeleton/Items';
+
 class Home extends Component<any, any>
 {
 
@@ -35,9 +37,13 @@ class Home extends Component<any, any>
 			
 			if(error)
 			{
+
 				return <Error title="404 Not Found" message={errorMessage} />
+
 			} else if(!loaded) {
-				return <h1>LOADING DATA...</h1>
+
+				return <ItemsSkeleton />
+				
 			}
 
 			return (

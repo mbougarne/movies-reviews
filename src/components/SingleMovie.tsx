@@ -5,6 +5,7 @@ import MVDB from '../configs';
 
 import Error from './Error';
 import MovieContent from './singles/MovieContent';
+import SingleItem from '../skeleton/SingleItem';
 
 export default function SingleMovie()
 {
@@ -46,12 +47,16 @@ export default function SingleMovie()
   const renderUI = () : any => {
     if(!loaded)
     {
-      return <h1>Loading Data...</h1>
-    } else if(error)
-    {
+      return <SingleItem />
+
+    } else if(error) {
+
       return <Error title="404 Not Found" message={message} />
+
     } else {
+
       return <MovieContent movie={movie} />
+      
     }
   }
 

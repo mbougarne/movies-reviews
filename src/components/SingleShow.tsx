@@ -5,6 +5,7 @@ import MVDB from '../configs';
 
 import Error from './Error';
 import ShowContent from './singles/ShowContent';
+import SingleItem from '../skeleton/SingleItem';
 
 export default function Singleshow()
 {
@@ -47,7 +48,7 @@ export default function Singleshow()
     if(!loaded)
     {
 
-      return <h1>Loading Data...</h1>
+      return <SingleItem />
 
     } else if(error) {
 
