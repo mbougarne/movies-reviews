@@ -29,3 +29,16 @@ jobs:
           DEFAULT_BRANCH: main
       - name: Echo done message
         run: echo "Done!"
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+    steps:
+    - name: build on remote VPS with SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: cd ${{ secrets.PATH }} && yarn deploy
+
