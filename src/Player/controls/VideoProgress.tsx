@@ -5,7 +5,7 @@ export default function VideoProgress({ video }: Record<string, any> )
 	let [progress, setProgress] = useState(0)
 	
 	useEffect( () => {
-			
+		console.log(video)
 		const interval = setInterval(() => {
 			setProgress((video.currentTime / video.duration) * 100)
 		}, 1000)

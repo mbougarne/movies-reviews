@@ -12,11 +12,13 @@ const Controls = ({video}: Record<string, any>) => {
 			</div>
 			<div className="videoButtons">
 				<div className="row">
-					<div className="col-2">
+					<div className="col-6">
 						<PlayPause video={video} />
 					</div>
 					<div className="col-6">
-						<Volume video={video} />
+						<div className="float-right mr-3">
+							<Volume video={video} />
+						</div>
 					</div>
 				</div>
 			</div>
