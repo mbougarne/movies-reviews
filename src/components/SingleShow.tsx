@@ -42,7 +42,7 @@ export default function Singleshow()
     }
     
     fetchshow();
-  }, [])
+  }, [id])
 
   const renderUI = () : any => {
     if(!loaded)

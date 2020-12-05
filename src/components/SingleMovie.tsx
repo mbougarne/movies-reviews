@@ -42,7 +42,7 @@ export default function SingleMovie()
     }
     
     fetchMovie();
-  }, [])
+  }, [id])
 
   const renderUI = () : any => {
     if(!loaded)
