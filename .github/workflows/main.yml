@@ -22,11 +22,12 @@ jobs:
       - name: Run Jest Tests
         run: yarn test
 
-      - name: Lint Code Base
-        uses: github/super-linter@v3
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
+      # - name: Lint Code Base
+      #   uses: github/super-linter@v3
+      #   env:
+      #     VALIDATE_ALL_CODEBASE: false
+      #     DEFAULT_BRANCH: main
+
       - name: build on remote VPS with SSH
         uses: appleboy/ssh-action@master
         with:
@@ -34,5 +35,13 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: cd ${{ secrets.PATH }} && yarn deploy
+          script: |
+            cd ${{ secrets.PATH }}
+            mkdir working && cd working
+            git init && git pull https://github.com/mbougarne/movies-reviews.git
+            yarn install
+            yarn deploy
+            cd
+            cp -a ${{ secrets.CURRENT_PATH }}/. ${{ secrets.PUBLIC_PATH }}
+            echo "Done!"
 
